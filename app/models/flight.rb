@@ -3,12 +3,19 @@ class Flight < ApplicationRecord
   belongs_to :to_airport,   class_name: "Airport"
 
   def self.departures
-    pluck(:departure).map { |departure| departure.strftime("#%d/%m/%Y") }.sort.uniq
+    self.select("departure").distinct.map{ |flight| [flight.departure.strftime("%m/%d/%Y"),flight.departure]}
   end
 
   def self.search(params)
-    self.where(from_airport_id: params[:from],
-               to_airport_id:   params[:to],
-               departure:       params[:departure])
+    if params[:from].blank? && params[:to].blank? && params[:date].blank? && params[:passengers].blank?
+      flights = []
+    else
+      flights = Flight.all
+      flights = flights.where(from_airport_id: params[:from]) if params[:from].present?
+      flights = flights.where(to_airport_id:   params[:to]) if params[:to].present?
+      flights = flights.where(departure:       params[:date].to_datetime) if params[:date].present?
+      flights = nil if flights == []
+    end
+    flights
   end
 end

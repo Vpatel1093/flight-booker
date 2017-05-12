@@ -2,7 +2,7 @@
   <p>
     <%= select_tag(:from, options_for_select(@airports, params[:from]), prompt: "From") %>
     <%= select_tag(:to,   options_for_select(@airports, params[:to]), prompt: "To") %>
-    <%= select_tag(:departure, options_for_select(@departures, params[:departure]), prompt: "Date") %>
+    <%= select_tag(:date, options_for_select(@departures, params[:date]), prompt: "Date") %>
     <%= select_tag(:passengers, options_for_select(@passengers, params[:passengers]), prompt: "Passengers") %>
   </p>
 

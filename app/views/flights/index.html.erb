@@ -2,4 +2,9 @@
 
 <%= render 'search' %>
 
-<%= render 'search_results' %>
+<% if @flights == nil %>
+  <h3>Sorry, no flights were found.</h3>
+<% elsif @flights.count != 0 %>
+  <%= render 'search_results' %>
+<% else %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= form_tag('bookings#new', method: 'get') do %>
+  <%= hidden_field_tag(:passengers, params[:passengers]) %>
+  <table cellspacing=15>
+    <tr>
+      <th></th>
+      <th>From</th>
+      <th>To</th>
+      <th>Departure</th>
+      <th>Duration</th>
+    </tr>
+    <%= render @flights %>
+  </table>
+  <%= submit_tag("Select flight") %>
+<% end %>

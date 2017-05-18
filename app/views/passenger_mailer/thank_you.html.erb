@@ -1,0 +1,10 @@
+<h1>Thank you, <%= @passenger.name %>, for your purchase!</h1>
+<p>Your flight information is listed below:</p>
+
+<p>
+  <strong>Flight #: </strong><%= @booking.flight.id %><br>
+  <strong>From: </strong><%= @booking.flight.from_airport.code %><br>
+  <strong>To: </strong><%= @booking.flight.to_airport.code %>.<br>
+  <strong>Departure time: </strong><%= @booking.flight.departure %><br>
+  <strong>Flight duration: </strong><%= @booking.flight.duration %> hours
+</p>

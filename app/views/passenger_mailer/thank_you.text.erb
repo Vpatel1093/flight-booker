@@ -1,0 +1,9 @@
+Thank you, <%= @passenger.name %>, for your purchase!
+
+Your flight information listed is below:
+
+Flight #: <%= @booking.flight.id %>
+From: <%= @booking.flight.from_airport.code %>
+To: <%= @booking.flight.to_airport.code %>.
+Departure time: <%= @booking.flight.departure %>
+Flight duration: <%= @booking.flight.duration %> hours
